@@ -45,7 +45,7 @@ session_start();
 				<h3 class="panel-title">Create Account</h3>
 			</div>
 			<div class="panel-body">
-				<form class="form-horizontal" role="form" id="form-login" action="create.php" method="post">
+				<form class="form-horizontal" role="form" id="form-login" action="create.php" method="post" enctype="multipart/form-data">
 					<div class="form-group">
 						<label class="control-label col-sm-2" for="name">name:</label>
 						<div class="col-sm-10">

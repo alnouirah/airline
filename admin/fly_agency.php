@@ -67,7 +67,7 @@
                                         <tr>
                                             <td><?php echo $agency['name'] ?></td>
                                             <td><?php echo $agency['phone'] ?></td>
-                                            <td>Logo</td>
+                                            <td><img width="200px" height="200px" src="../<?php echo $agency['logo'] ?>"/></td>
                                             <td>
                                                 <a href="../functions/AirAgency.php?delete&id=<?php echo $agency['id'] ?>" class="btn btn-danger">Delete</a>
                                                 <a href="update_fly.php?update&id=<?php echo $agency['id'] ?>" class="btn btn-warning">Update</a>

@@ -43,7 +43,7 @@
                     </a>
                 </div>
                 <div class="login-form">
-                    <form action="../functions/Customer.php" method="POST">
+                    <form action="../functions/Customer.php" method="POST" enctype="multipart/form-data">
                         <div class="form-group">
                             <label>User Name</label>
                             <input type="text" name="name" class="form-control" placeholder="User Name">

@@ -1,5 +1,10 @@
 
-        <?php include('header.php');  ?>
+        <?php 
+            include('header.php');
+            include('../class/Admin.php');
+            $adminObject = new Admin();
+            $currentAdmin = $adminObject->getRow('select * from users where id = ?',[$_SESSION['admin_id']]);
+        ?>
         <!-- /header -->
         <!-- Header-->
 
@@ -30,57 +35,73 @@
 
                     <div class="col-md-12">
                         <div class="col-lg-12">
-                            <div class="card">
-                                <div class="card-header"><strong>Profile Agencies</strong><small> Form</small></div>
-                                <div class="card-body card-block">
-                                    <div class="form-group">
-                                        <label for="name" class=" form-control-label">Name</label>
-                                        <input type="text" id="name" name="name" placeholder="Enter Agency Name" class="form-control">
-                                    </div>
+                            <form action="../functions/Admin.php" method="POST">
+                                <input type="hidden" name="admin_id" value="<?php echo $currentAdmin['id'] ?>"/>
+                                <div class="card">
+                                    <div class="card-header"><strong>Profile Agencies</strong><small> Form</small></div>
+                                    <div class="card-body card-block">
+                                        <div class="form-group">
+                                            <label for="name" class=" form-control-label">Name</label>
+                                            <input type="text" id="name" name="name" value="<?php echo $currentAdmin['name'] ?>" placeholder="Enter Agency Name" class="form-control">
+                                        </div>
 
-                                    <div class="form-group">
-                                        <label for="email" class=" form-control-label">Email</label>
-                                        <input type="email" id="email" name="email" placeholder="a@gmail.com" class="form-control">
-                                    </div>
+                                        <div class="form-group">
+                                            <label for="email" class=" form-control-label">Email</label>
+                                            <input type="email" id="email" name="email" value="<?php echo $currentAdmin['email'] ?>" placeholder="a@gmail.com" class="form-control">
+                                        </div>
 
-                                    <div class="form-group">
-                                        <label for="password" class=" form-control-label">password</label>
-                                        <input type="password" id="password" name="password"  class="form-control">
-                                    </div>
+                                        <div class="form-group">
+                                            <label for="password" class=" form-control-label">password</label>
+                                            <input type="password" id="password" name="password"  class="form-control">
+                                        </div>
 
-                                    <div class="form-group">
-                                        <label for="phone" class=" form-control-label">phone</label>
-                                        <input type="number" id="phone" name="phone"  class="form-control">
-                                    </div>
-                                    
-                                    <div class="form-group">
-                                        <label for="gender" class=" form-control-label">gender</label>
-                                        <select class="form-control" name="gender">
-                                            <option value="1">Male</option>
-                                            <option value="0">Female</option>
-                                        </select>
-                                    </div>
+                                        <div class="form-group">
+                                            <label for="phone" class=" form-control-label">phone</label>
+                                            <input type="number" id="phone" value="<?php echo $currentAdmin['phone'] ?>" name="phone"  class="form-control">
+                                        </div>
+                                        
+                                        <div class="form-group">
+                                            <label for="gender" class=" form-control-label">gender</label>
+                                            <select class="form-control" name="gender">
+                                                <option value="1">Male</option>
+                                                <option value="0">Female</option>
+                                            </select>
+                                        </div>
 
-                                    <div class="form-group">
-                                        <label for="age" class=" form-control-label">age</label>
-                                        <input type="number" id="age" name="age"  class="form-control">
-                                    </div>
+                                        <div class="form-group">
+                                            <label for="age" class=" form-control-label">age</label>
+                                            <input type="number" id="age" name="age" value="<?php echo $currentAdmin['age'] ?>"  class="form-control">
+                                        </div>
 
-                                    <div class="form-group">
-                                        <label for="address" class=" form-control-label">address</label>
-                                        <input type="text" id="address" name="address"  class="form-control">
-                                    </div>
+                                        <div class="form-group">
+                                            <label for="address" class=" form-control-label">address</label>
+                                            <input type="text" id="address" name="address" value="<?php echo $currentAdmin['address'] ?>"  class="form-control">
+                                        </div>
 
-                                    <div class="form-group">
-                                        <label for="image" class=" form-control-label">Image</label>
-                                        <input type="file" id="image" name="image"  class="form-control">
-                                    </div>
-
-                                    <div class="form-group">
-                                        <button class="btn btn-primary" style="border-radius: 4px;">update</button>
+                                        <div class="form-group">
+                                            <button type="submit" name="update_profile" id="update_profile" class="btn btn-primary" style="border-radius: 4px;">update</button>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
+                            </form>
+
+                            <form action="../functions/Admin.php" method="POST" enctype="multipart/form-data">
+                                <input type="hidden" name="admin_id" value="<?php echo $currentAdmin['id'] ?>"/>
+                                <div class="card">
+                                    <div class="card-header"><strong>Image Update</strong><small> Form</small></div>
+                                    <div class="card-body card-block">
+
+                                        <div class="form-group">
+                                            <label for="image" class=" form-control-label">Image</label>
+                                            <input type="file" id="image" name="image"  class="form-control">
+                                        </div>
+
+                                        <div class="form-group">
+                                            <button type="submit" name="update_image" id="update_image" class="btn btn-primary" style="border-radius: 4px;">update</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
                         </div>
                     </div>
 

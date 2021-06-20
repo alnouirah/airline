@@ -32,7 +32,7 @@
                             <div class="card">
                                 <div class="card-header"><strong>Fly Agencies</strong><small> Form</small></div>
                                 <div class="card-body card-block">
-                                    <form action="../functions/AirAgency.php" method="POST">
+                                    <form action="../functions/AirAgency.php" method="POST" enctype="multipart/form-data">
                                         <div class="form-group">
                                             <label for="name" class=" form-control-label">Name</label>
                                             <input type="text" id="name" name="name" placeholder="Enter Agency Name" class="form-control">
@@ -45,7 +45,7 @@
 
                                         <div class="form-group">
                                             <label for="logo" class=" form-control-label">logo</label>
-                                            <input type="file" id="logo" name="logo"  class="form-control">
+                                            <input required type="file" id="logo" name="logo"  class="form-control">
                                         </div>
 
                                         <div class="form-group">

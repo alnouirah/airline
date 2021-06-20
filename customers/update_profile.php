@@ -87,12 +87,25 @@
                                         </div>
 
                                         <div class="form-group">
+                                            <button type="submit" class="btn btn-primary" value="update_profile" name="update_profile" style="border-radius: 4px;">update</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                            <form action="../functions/Customer.php" method="POST" enctype="multipart/form-data">
+                                <input type="hidden" name="id" value="<?php echo $_SESSION['user_id'] ?>"/>
+                                <div class="card">
+                                    <div class="card-header"><strong>Profile Image</strong><small> Form</small></div>
+
+                                    <div class="card-body card-block">
+
+                                        <div class="form-group">
                                             <label for="image" class=" form-control-label">Image</label>
-                                            <input type="file" id="image" name="image"  class="form-control">
+                                            <input required type="file" id="image" name="image"  class="form-control">
                                         </div>
 
                                         <div class="form-group">
-                                            <button type="submit" class="btn btn-primary" value="update_profile" name="update_profile" style="border-radius: 4px;">update</button>
+                                            <button type="submit" class="btn btn-primary" value="update_image" name="update_image" style="border-radius: 4px;">update</button>
                                         </div>
                                     </div>
                                 </div>

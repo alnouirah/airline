@@ -2,8 +2,8 @@
 require_once('../database/Database.php');
 
 class AirAgency extends Database{
-    public function craete_agency($name,$phone){
-        $this->insertRow('insert into agencies(name,phone) values(?,?)',[$name,$phone]);
+    public function craete_agency($name,$phone,$imageLink){
+        $this->insertRow('insert into agencies(name,phone,logo) values(?,?,?)',[$name,$phone,$imageLink]);
         $_SESSION['message'] = 'Agency Created Successfully';
         return true;
     }

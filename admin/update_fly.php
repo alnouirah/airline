@@ -38,33 +38,44 @@
 
                     <div class="col-md-12">
                         <div class="col-lg-12">
-                            <div class="card">
-                                <div class="card-header"><strong>Update Fly Agencies</strong><small> Form</small></div>
-                                <div class="card-body card-block">
-                                    <form action="../functions/AirAgency.php" method="POST">
-                                        <input type="hidden" name="id" value="<?php echo $agency['id'] ?>"/>
-                                        <div class="form-group">
-                                            <label for="name" class=" form-control-label">Name</label>
-                                            <input type="text" id="name" name="name" value="<?php echo $agency['name'] ?>" placeholder="Enter Agency Name" class="form-control">
-                                        </div>
+                            <form action="../functions/AirAgency.php" method="POST">
+                                <div class="card">
+                                    <div class="card-header"><strong>Update Fly Agencies</strong><small> Form</small></div>
+                                    <div class="card-body card-block">
+                                            <input type="hidden" name="id" value="<?php echo $agency['id'] ?>"/>
+                                            <div class="form-group">
+                                                <label for="name" class=" form-control-label">Name</label>
+                                                <input type="text" id="name" name="name" value="<?php echo $agency['name'] ?>" placeholder="Enter Agency Name" class="form-control">
+                                            </div>
 
-                                        <div class="form-group">
-                                            <label for="phone" class=" form-control-label">phone</label>
-                                            <input type="text" id="phone" name="phone" value="<?php echo $agency['phone'] ?>" placeholder="774873474" class="form-control">
-                                        </div>
+                                            <div class="form-group">
+                                                <label for="phone" class=" form-control-label">phone</label>
+                                                <input type="text" id="phone" name="phone" value="<?php echo $agency['phone'] ?>" placeholder="774873474" class="form-control">
+                                            </div>
 
-                                        <div class="form-group">
-                                            <label for="logo" class=" form-control-label">logo</label>
-                                            <input type="file" id="logo" name="logo"  class="form-control">
-                                        </div>
-
-
-                                        <div class="form-group">
-                                            <button type="submit" value="update" name="update" class="btn btn-primary" style="border-radius: 4px;">update</button>
-                                        </div>
-                                    </form>
+                                            <div class="form-group">
+                                                <button type="submit" value="update" name="update" class="btn btn-primary" style="border-radius: 4px;">update</button>
+                                            </div>
+                                    </div>
                                 </div>
-                            </div>
+                            </form>
+
+                            <form action="../functions/AirAgency.php" method="POST" enctype="multipart/form-data">
+                                <div class="card">
+                                    <div class="card-header"><strong>Update Fly Agencies</strong><small> Form</small></div>
+                                    <div class="card-body card-block">
+                                            <input type="hidden" name="id" value="<?php echo $agency['id'] ?>"/>
+                                            <div class="form-group">
+                                                <label for="logo" class=" form-control-label">logo</label>
+                                                <input type="file" id="logo" name="logo"  class="form-control">
+                                            </div>
+
+                                            <div class="form-group">
+                                                <button type="submit" value="update_logo" name="update_logo" class="btn btn-primary" style="border-radius: 4px;">update</button>
+                                            </div>
+                                    </div>
+                                </div>
+                            </form>
                         </div>
                     </div>
 

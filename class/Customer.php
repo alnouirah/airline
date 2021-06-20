@@ -2,14 +2,15 @@
 require_once('../database/Database.php');
 
 class Customer extends Database{
-    public function createAccount($name,$email,$phone,$password,$gender,$age,$address){
+    public function createAccount($name,$email,$phone,$password,$gender,$age,$address,$image){
         $isNotExist = $this->isNotExist($email);
         if($isNotExist){
-            $this->insertRow('insert into users (name,email,phone,password,gender,age,address) values (?,?,?,?,?,?,?) ',[$name,$email,$phone,$password,$gender,$age,$address]);
+            $this->insertRow('insert into users (name,email,phone,password,gender,age,address,image) values (?,?,?,?,?,?,?,?) ',[$name,$email,$phone,$password,$gender,$age,$address,$image]);
             $user = $this->getRow('select * from users where email = ?',[$email]);
             session_start();
             $_SESSION['user_email'] = $user['email'];
             $_SESSION['user_id'] = $user['id'];
+            $_SESSION['image'] = $image;
             header('location:../customers/dashboard.php');
         }else{
             $_SESSION['authintication_message'] = 'Sorry the email is already exist';
