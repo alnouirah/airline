@@ -12,8 +12,8 @@ class Admin extends Database{
         return false;
     }
 
-    public function check_creadentials($email,$password){
-        $user  = $this->getRow('select * from users where email = ? and password = ? and role_id = 1',[$email,$password]);
+    public function check_creadentials($email){
+        $user  = $this->getRow('select * from users where email = ?  and role_id = 1',[$email]);
         // var_dump($user);
         if(!$user){
             return true;

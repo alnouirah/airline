@@ -50,17 +50,18 @@ if(isset($_POST['log_in'])){
         header('location:../customers/index.php');
     }
     
-    $isNotExist = $customer->check_creadentials($email,$password);
-    if($isNotExist){
+    $customer = $customer->getRow('select * from users where email = ? and role_id = 2',[$email]);
+    $isMatched = password_verify($password,$customer['password']);
+    if(!$isMatched){
         // session_destroy();
         // die('is not exist');
         $_SESSION['authintication_message'] = 'Sorray the email or the password is not correct !';
         header('location:../customers/index.php');
     }else{
-            $user = $customer->getRow('select * from users where email = ? and password = ?',[$email,$password]);
+            
             $_SESSION['user_email'] = $email;
-            $_SESSION['user_id'] = $user['id'];
-            $_SESSION['image'] = $user['image'];
+            $_SESSION['user_id'] = $customer['id'];
+            $_SESSION['image'] = $customer['image'];
             header('location:../customers/dashboard.php');
     }
 

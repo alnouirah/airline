@@ -5,7 +5,7 @@ class Customer extends Database{
     public function createAccount($name,$email,$phone,$password,$gender,$age,$address,$image){
         $isNotExist = $this->isNotExist($email);
         if($isNotExist){
-            $this->insertRow('insert into users (name,email,phone,password,gender,age,address,image) values (?,?,?,?,?,?,?,?) ',[$name,$email,$phone,$password,$gender,$age,$address,$image]);
+            $this->insertRow('insert into users (name,email,phone,password,gender,age,address,image) values (?,?,?,?,?,?,?,?) ',[$name,$email,$phone,password_hash($password,PASSWORD_DEFAULT),$gender,$age,$address,$image]);
             $user = $this->getRow('select * from users where email = ?',[$email]);
             session_start();
             $_SESSION['user_email'] = $user['email'];

@@ -4,6 +4,7 @@ include('../class/Admin.php');
 $adminObject = new Admin();
 if(isset($_POST['log_in'])){
     
+    
     $email = $_POST['email'];
     $password = $_POST['password'];
 
@@ -14,14 +15,16 @@ if(isset($_POST['log_in'])){
         header('location:../admin/index.php');
     }
     
-    $isNotExist = $admin->check_creadentials($email,$password);
+    $isNotExist = $admin->check_creadentials($email);
     if($isNotExist){
         $_SESSION['authintication_message'] = 'Sorray the email or the password is not correct !';
         header('location:../admin/index.php');
     }
 
-    $user = $admin->getRow('select * from users where email = ? and password = ? and role_id = 1',[$email,$password]);
-    if(!$user){
+    
+    $user = $admin->getRow('select * from users where email = ?  and role_id = 1',[$email]);
+    $isMatched = password_verify($password,$user['password']);
+    if(!$isMatched){
         $_SESSION['authintication_message'] = 'Sorray the email or the password is not correct !';
         header('location:../admin/index.php');
     }else{
