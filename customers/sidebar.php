@@ -26,7 +26,7 @@
 
                     <h3 class="menu-title">Manage Profile</h3><!-- /.menu-title -->
                     <li>
-                        <a href="update_profile"> <i class="menu-icon fa fa-user"></i>Update Profile </a>
+                        <a href="update_profile.php"> <i class="menu-icon fa fa-user"></i>Update Profile </a>
                     </li>
                 </ul>
             </div><!-- /.navbar-collapse -->
