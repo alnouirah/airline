@@ -40,7 +40,7 @@
                                                     ?>
                                                         <div class="col-md-4">
                                                             <a href="reserve2.php?id=<?php echo $agency['id'] ?>">
-                                                                <img src="images/Emirates_logo.svg" width="200px" style="border-radius: 4px;"/>
+                                                                <img src="../<?php echo $agency['logo'] ?>" width="200px" height="200px" style="border-radius: 4px;"/>
                                                                 <p><?php echo $agency['name'] ?></p>
                                                             </a>
                                                         </div>
